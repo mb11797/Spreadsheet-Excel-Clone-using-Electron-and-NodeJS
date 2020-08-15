@@ -38,7 +38,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile("index.ejs").then(function () {
+  win.loadFile("index.html").then(function () {
     //to remove default menu
     win.removeMenu();
     //maximize
