@@ -18,16 +18,21 @@ html, body{
     border: 1px grey solid;
 }
 
-.formulaBar{
+/* .formula-container{
     height: 20px;
-    /* border: 2px solid yellow; */
-}
+    border: 2px solid yellow;
+} */
 
-.text-container{
+/* .address-container{
     width: 18vw;
 }
 .formula-container{
     width: calc(100vw - 18vw);
+} */
+
+.formula-container{
+    height: 28px;
+    border: 1px solid royalblue;
 }
 
 .ib{
@@ -35,7 +40,7 @@ html, body{
 }
 
 /**************************Cell container******************/
-.cell-container{
+.content-container{
     height: calc(100vh - 128px);
     /* background-color: green; */
     overflow: auto;
@@ -98,7 +103,7 @@ html, body{
     /* width: 75px; */
 }
 
-.sheets{
+.sheets-container{
     height: 20px;
     border: 2px pink solid;
 }
