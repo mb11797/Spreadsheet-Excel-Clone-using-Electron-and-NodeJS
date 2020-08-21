@@ -9,13 +9,17 @@ html, body{
     box-sizing: border-box;
 }
 
-.menu{
+.menu-container{
     height: 20px;
 }
 
 .menu-options{
     height: 68px;
     border: 1px grey solid;
+    display: flex;
+    justify-content: space-evenly;
+    width: 127px;
+    align-items: center;
 }
 
 /* .formula-container{
