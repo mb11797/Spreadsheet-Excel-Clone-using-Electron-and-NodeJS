@@ -12,34 +12,80 @@
 <body>
     <!-- .menu+.menu-options+(.formulaBar>(input[type="text"])*2)+.cell-container+.sheets -->
     <!-- #New+#Open+#Save -->
-    <div class="menu-container">Menu</div>
-    <div class="menu-options">
-        <div id="New">New</div>
-        <div id="Open">Open</div>
-        <div id="Save">Save</div>
+    <!-- .menu+.menu -->
+    <!-- .menu*2 -->
+    <!-- input[type="button"]*3 -->
+    
+    <div class="menu-container">
+        <div class="menu" id="File" style="cursor: pointer;">File</div>
+        <div class="menu" id="Home" style="cursor: pointer;">Home</div>
     </div>
-    <div class="formula-conatiner">
+
+    <div class="menu-options-container">
+        <div class="menu-options" id="File-menu-options">
+            <div id="New" style="cursor: pointer;">New
+                <!-- <a href="#"></a> -->
+            </div>
+            <div id="Open" style="cursor: pointer;">Open</div>
+            <div id="Save" style="cursor: pointer;">Save</div>
+        </div>
+        <div class="menu-options" id="Home-menu-options">
+            <div class="menu-group">
+                <div class="menu-row">
+                    <select name="fontFamily" id="font-family" style="cursor: pointer;">
+                        <option value="Arial">Arial</option>
+                        <option value="Cambria">Cambria</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="monospace">monospace</option>
+                        <option value="sans-serif">Sans-Serif</option>
+                    </select>
+                    <select name="fontSize" id="font-size" style="cursor: pointer;">
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="22">22</option>
+                    </select>
+                </div>
+                <div class="menu-row">
+                    <input type="button" id="bold" value="B" style="cursor: pointer;">
+                    <input type="button" id="underline" value="U" style="cursor: pointer;">
+                    <input type="button" id="italic" value="I" style="cursor: pointer;">
+                    <input type="color" id="bg-color" value="rebeccapurple" style="cursor: pointer;">
+                    <input type="color" id="text-color" value="gray" style="cursor: pointer;">
+                </div>
+            </div>
+            <div class="menu-group">
+                <input type="button" id="align-left" value="L" halign="left" style="cursor: pointer;">
+                <input type="button" id="align-center" value="C" halign="center" style="cursor: pointer;">
+                <input type="button" id="align-right" value="R" halign="right" style="cursor: pointer;">
+            </div>
+        </div>
+    </div>
+    <div class="formula-container">
+        Cell
+        <input type="text" readonly="true" id="address-input">
         Formula
-        <input type="text" id="address-input">
         <input type="text" id="formula-input">
     </div>
     <div class="content-container">
-        <div id="top-left-cell"></div>
-        <div id="top-row">
+        <div id="top-left-cell" class="top-left-cell"></div>
+        <div id="top-row" class="top-row">
             <%for(let i=0; i<cols;i++){%>
             <div class="cell">
                 <%=String.fromCharCode(i+65)%>
             </div>
             <%}%>
         </div>
-        <div id="left-col">
+        <div id="left-col" class="left-col">
             <%for(let j=1; j<=rows; j++){%>
                 <div class="cell">
                 <%=j%>
             </div>
             <%}%>
         </div>
-        <div id="grid">
+        <div id="grid" class="grid">
             <% for(let i=0;i<rows;i++) { %>
             <div class="row">
                 <% for(let j=0;j<cols;j++){ %>
