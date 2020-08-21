@@ -2,6 +2,7 @@
 html, body{
     margin: 0px;
     padding: 0px;
+    background-color: plum;
 }
 
 /*universal selector */
@@ -11,15 +12,41 @@ html, body{
 
 .menu-container{
     height: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    width: 124px;
+    background-color: plum;
 }
 
-.menu-options{
+.menu-options-container{
+    height: 60px;
+    border: 1px solid black;
+    justify-content: space-evenly;
+    width: 363px;
+    align-items: center;
+    display: block;
+    background-color: plum;
+}
+
+/* .menu-options{
     height: 68px;
     border: 1px grey solid;
     display: flex;
     justify-content: space-evenly;
     width: 127px;
     align-items: center;
+} */
+
+.menu-options{
+    display: none;
+}
+
+.menu-options.selected{
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    height: 100%;
 }
 
 /* .formula-container{
@@ -34,80 +61,97 @@ html, body{
     width: calc(100vw - 18vw);
 } */
 
-.formula-container{
-    height: 28px;
-    border: 1px solid royalblue;
+input[type="button"].isOn{
+    background-color: lightslategray;
 }
 
-.ib{
-    margin-right: -4px;
+.formula-container{
+    /* height: 28px; */
+    border: 1px solid black;
+    background-color: plum;
 }
+
+
+/* .ib{
+    margin-right: -4px;
+} */
 
 /**************************Cell container******************/
 .content-container{
     height: calc(100vh - 128px);
-    /* background-color: green; */
+    background-color: lightgreen;
     overflow: auto;
     position: relative;
 }
 
-#top-left-cell{
+.top-left-cell{
     position: absolute;
     height: 25px;
     width: 25px;
     background-color: gray;
+    z-index: 3;
 }
 
-#top-row{
+.top-row{
     display: flex;
     text-align: center;
     position: absolute;
     left: 25px;
     top: 0px;
+    z-index: 2;
+    background-color: purple;
 }
 
-#top-row> .cell{
-    min-width: 63px;
+.top-row> .cell{
+    min-width: 75px;
     border: 1px solid lightgray;
 }
 
-#left-col{
+.left-col{
     position: absolute;
     top: 25px;
-}
+    z-index: 2;
+    background-color: purple;
+}    
 
-#left-col> .cell{
+.left-col> .cell{
     width: 25px;
-    height: 25px;
-    background-color: lightgray;
+    /* height: 25px;
+    background-color: lightgray; */
 }
 
-#grid{
-    text-align: center;
+.grid{
+    /* text-align: center; */
     position: absolute;
     left: 25px;
     top: 25px;
-    background-color: green;
+    background-color: plum;
+    z-index: 1;
 }
 
 .cell{
     border: 1px solid black;
-    width: 75px;
-    height: 25px;
+    /* width: 75px; */
+    text-align: center;
+    min-height: 25px;
 }
 
 .row{
     display: flex;
 }
 
-.col{
+.row>.cell{
+    width: 75px;
+}
+
+/* .col{
     border: 1px teal solid;
     min-width: 75px;
     height: 23px;
-    /* width: 75px; */
-}
+    // width: 75px; 
+} */
 
 .sheets-container{
     height: 20px;
-    border: 2px pink solid;
+    border: 1px grey solid;
 }
