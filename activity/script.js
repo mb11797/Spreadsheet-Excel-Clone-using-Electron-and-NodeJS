@@ -63,6 +63,20 @@ $(document).ready(function () {
             $("#bold").removeClass("isOn");
         }
 
+        if (cellObj.underline) {
+            $("#underline").addClass("isOn");
+        }
+        else {
+            $("#underline").removeClass("isOn");
+        }
+
+        if (cellObj.italic) {
+            $("#italic").addClass("isOn");
+        }
+        else {
+            $("#italic").removeClass("isOn");
+        }
+
         lcell = this;
     });
 
@@ -73,6 +87,24 @@ $(document).ready(function () {
         let cellElem = $("#grid .cell.selected");
         let cellObj = getcell(cellElem);
         cellObj.bold = isBold;
+    })
+
+    $('#underline').on("click", function () {
+        $(this).toggleClass("isOn");
+        let isUnderline = $(this).hasClass("isOn");
+        $("#grid .cell.selected").css("text-decoration", isUnderline ? "underline" : "none");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        cellObj.underline = isUnderline;
+    })
+
+    $('#italic').on("click", function () {
+        $(this).toggleClass("isOn");
+        let isItalic = $(this).hasClass("isOn");
+        $("#grid .cell.selected").css("font-style", isItalic ? "italic" : "normal");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        cellObj.italic = isItalic;
     })
 
     $("#New").on("click", function () {
