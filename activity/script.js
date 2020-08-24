@@ -107,6 +107,23 @@ $(document).ready(function () {
         cellObj.italic = isItalic;
     })
 
+    $("#bg-color").on("change", function () {
+        let bgColor = $(this).val();
+        let cellElem = $("#grid .cell.selected");
+        cellElem.css("background-color", bgColor);
+        let cellObj = getcell(cellElem);
+        cellObj.bgColor = bgColor;
+    })
+
+
+    $('#text-color').on("change", function () {
+        let textColor = $(this).val();
+        let cellElem = $("#grid .cell.selected");
+        cellElem.css("color", textColor);
+        let cellObj = getcell(cellElem);
+        cellObj.textColor = textColor;
+    })
+
     $("#New").on("click", function () {
         db = [];
         let AllRows = $('#grid').find('.row');
