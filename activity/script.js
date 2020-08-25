@@ -131,6 +131,38 @@ $(document).ready(function () {
         cellObj.textColor = textColor;
     })
 
+    $('#align-left').on("click", function () {
+        $(this).toggleClass("isOn");
+        $("#align-center").removeClass("isOn");
+        $("#align-right").removeClass("isOn");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        let isLeftAlign = $(this).hasClass("isOn");
+        $("#grid .cell.selected").css("text-align", isLeftAlign ? "left" : cellObj.halign);
+        cellObj.halign = isLeftAlign ? "left" : cellObj.halign;
+    })
+
+    $('#align-center').on("click", function () {
+        $(this).toggleClass("isOn");
+        $("#align-left").removeClass("isOn");
+        $("#align-right").removeClass("isOn");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        let isCenterAlign = $(this).hasClass("isOn");
+        $("#grid .cell.selected").css("text-align", isCenterAlign ? "center" : cellObj.halign);
+        cellObj.halign = isCenterAlign ? "center" : cellObj.halign;
+    })
+
+    $('#align-right').on("click", function () {
+        $(this).toggleClass("isOn");
+        $("#align-left").removeClass("isOn");
+        $("#align-center").removeClass("isOn");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        let isRightAlign = $(this).hasClass("isOn");
+        $("#grid .cell.selected").css("text-align", isRightAlign ? "right" : cellObj.halign);
+        cellObj.halign = isRightAlign ? "right" : cellObj.halign;
+    })
 
     $("#New").on("click", function () {
         db = [];
