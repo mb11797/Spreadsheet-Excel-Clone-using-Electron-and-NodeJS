@@ -123,6 +123,14 @@ $(document).ready(function () {
         cellObj.fontFamily = fontFamily;
     })
 
+    $("#font-size").on("change", function () {
+        let fontSize = $(this).val();
+        $("#grid .cell.selected").css("font-size", fontSize + "px");
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        cellObj.fontSize = fontSize;
+    })
+
     $('#text-color').on("change", function () {
         let textColor = $(this).val();
         let cellElem = $("#grid .cell.selected");
