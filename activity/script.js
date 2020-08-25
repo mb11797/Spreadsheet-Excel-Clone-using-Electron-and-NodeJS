@@ -115,6 +115,13 @@ $(document).ready(function () {
         cellObj.bgColor = bgColor;
     })
 
+    $("#font-family").on("change", function () {
+        let fontFamily = $(this).val();
+        $("#grid .cell.selected").css("font-family", fontFamily);
+        let cellElem = $("#grid .cell.selected");
+        let cellObj = getcell(cellElem);
+        cellObj.fontFamily = fontFamily;
+    })
 
     $('#text-color').on("change", function () {
         let textColor = $(this).val();
@@ -123,6 +130,7 @@ $(document).ready(function () {
         let cellObj = getcell(cellElem);
         cellObj.textColor = textColor;
     })
+
 
     $("#New").on("click", function () {
         db = [];
