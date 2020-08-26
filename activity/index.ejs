@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./index.js"></script>
+    <title><%=title%></title>
+</head>
+
+<body>
+    <!-- .menu+.menu-options+(.formulaBar>(input[type="text"])*2)+.cell-container+.sheets -->
+    <div class="menu">Menu</div>
+    <div class="menu-options">Menu options</div>
+    <div class="formulaBar">
+        <input type="text" id="text-input" class="text-container ib">
+        <input type="text" id="formula-input" class="formula-container "></div>
+    <div class="cell-container">
+        <div id="top-left-cell"></div>
+        <div id="top-row">
+            <%for(let i=0; i<cols;i++){%>
+            <div class="cell">
+                <%=String.fromCharCode(i+65)%>
+            </div>
+            <%}%>
+        </div>
+        <div id="left-col">
+            <%for(let j=1; j<=rows; j++){%>
+            <div class="cell">
+                <%=j%>
+            </div>
+            <%}%>
+        </div>
+        <div id="grid">
+            <% for(let i=0;i<rows;i++) { %>
+                <div class = "row">
+                    <% for(let j=0;j<cols;j++){ %>
+                        <div class = "cell" contenteditable="true" row-id=<%=i%> col-id=<%=j%>></div>
+                        <%}%>
+                </div>
+            <% }%>
+        </div>
+    </div>
+    
+    <div class="sheets">
+
+    </div>
+
+</body>
+
+</html>
