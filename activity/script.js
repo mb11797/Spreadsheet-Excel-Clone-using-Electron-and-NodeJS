@@ -77,6 +77,33 @@ $(document).ready(function () {
             $("#italic").removeClass("isOn");
         }
 
+        if(cellObj.halign == "left"){
+            $("#align-left").addClass("isOn");
+            $("#align-center").removeClass("isOn");
+            $("#align-right").removeClass("isOn");
+        }
+        else{
+            $("#align-left").removeClass("isOn");
+        }
+
+        if(cellObj.halign == "center"){
+            $("#align-center").addClass("isOn");
+            $("#align-left").removeClass("isOn");
+            $("#align-right").removeClass("isOn");
+        }
+        else{
+            $("#align-center").removeClass("isOn");
+        }
+
+        if(cellObj.halign == "right"){
+            $("#align-right").addClass("isOn");
+            $("#align-left").removeClass("isOn");
+            $("#align-center").removeClass("isOn");
+        }
+        else{
+            $("#align-right").removeClass("isOn");
+        }
+
         lcell = this;
     });
 
