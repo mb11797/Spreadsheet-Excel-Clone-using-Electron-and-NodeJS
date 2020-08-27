@@ -2,7 +2,11 @@ const $ = require("jquery")
 const fs = require("fs")
 //document => when HTML page is loaded in the browser it is called as document
 
-const dialog = require("electron").remote.dialog;
+//renderer.js - renderer process example
+const { remote } = require('electron'),
+    dialog = remote.dialog;
+
+// const dialog = require("electron").remote.dialog;
 $(document).ready(function () {
     // console.log('Jquery Loaded');
     let db;         // database
@@ -77,30 +81,30 @@ $(document).ready(function () {
             $("#italic").removeClass("isOn");
         }
 
-        if(cellObj.halign == "left"){
+        if (cellObj.halign == "left") {
             $("#align-left").addClass("isOn");
             $("#align-center").removeClass("isOn");
             $("#align-right").removeClass("isOn");
         }
-        else{
+        else {
             $("#align-left").removeClass("isOn");
         }
 
-        if(cellObj.halign == "center"){
+        if (cellObj.halign == "center") {
             $("#align-center").addClass("isOn");
             $("#align-left").removeClass("isOn");
             $("#align-right").removeClass("isOn");
         }
-        else{
+        else {
             $("#align-center").removeClass("isOn");
         }
 
-        if(cellObj.halign == "right"){
+        if (cellObj.halign == "right") {
             $("#align-right").addClass("isOn");
             $("#align-left").removeClass("isOn");
             $("#align-center").removeClass("isOn");
         }
-        else{
+        else {
             $("#align-right").removeClass("isOn");
         }
 
@@ -156,6 +160,12 @@ $(document).ready(function () {
         let cellElem = $("#grid .cell.selected");
         let cellObj = getcell(cellElem);
         cellObj.fontSize = fontSize;
+
+        // keyup function to synchronize grid cell size and row size
+        let { rowId } = getrc(cellElem);
+        let ht = cellElem.height();
+        // $("#left-col .cell").eq(rowId).height(ht);
+        $($("#left-col .cell")[rowId]).height(ht);
     })
 
     $('#text-color').on("change", function () {
@@ -257,16 +267,57 @@ $(document).ready(function () {
 
     $("#Save").on("click", async function () {
         // showDialogBox
-        let sdb = await dialog.showOpenDialog();
-        //file path
-        let fp = sdb.filePaths[0];
-        if (fp == undefined) {
+        // let sdb = await dialog.showOpenDialog({
+        //     properties: ['openDirectory']
+        // });
+        // //file path
+        // let fp = sdb.filePaths[0];
+        // console.log(fp);
+        // if (fp == undefined) {
+        //     console.log("Please select file first");
+        //     return;
+        // }
+
+        WIN = remote.getCurrentWindow();
+        // console.log(WIN);
+        let options = {
+            //Placeholder 1
+            title: "Save File As",
+
+            //Placeholder 2
+            defaultPath: "test",
+
+            //Placeholder 4
+            buttonLabel: "Save File",
+
+            //Placeholder 3
+            filters: [
+                // { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+                // { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+                // { name: 'Custom File Type', extensions: ['as'] },
+                { name: 'All Files', extensions: ['*'] }
+            ]
+        }
+
+        //Synchronous
+        let filename = await dialog.showSaveDialog(WIN, options);
+        // const fp = WIN + filename.filePath;
+        // console.log(filename.filePath);
+
+        if (filename == undefined) {
             console.log("Please select file first");
             return;
         }
 
+        //Or asynchronous - using callback
+        // dialog.showSaveDialog(WIN, options, (filename) => {
+        //     console.log(1);
+        //     console.log(filename)
+        // })
+
         let jsonData = JSON.stringify(db);
-        fs.writeFileSync(fp, jsonData);
+        fs.writeFileSync(filename.filePath, jsonData);
+        // fs.writeFile();
 
         // open dialogBox
         // select file

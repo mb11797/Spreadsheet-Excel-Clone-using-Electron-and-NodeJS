@@ -20,3 +20,4 @@ npm start
 Resources:
 https://www.electronjs.org/docs/tutorial/first-app
 https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell
+https://www.brainbell.com/javascript/show-save-dialog.html

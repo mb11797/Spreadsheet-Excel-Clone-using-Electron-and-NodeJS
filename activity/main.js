@@ -23,7 +23,7 @@ const ejs = require("ejs-electron");
 
 ejs.data({
   "title": "My Excel 1.0",
-  "rows": 100,
+  "rows": 500,
   "cols": 26
 })
 
@@ -46,7 +46,7 @@ function createWindow() {
     //unhide app so that user could view it
     win.show();
     //to open dev tools
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
   });
 }
 
