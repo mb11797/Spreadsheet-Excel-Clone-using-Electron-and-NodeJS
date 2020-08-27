@@ -4,18 +4,31 @@ This Spreadsheet application is built using Electron with EJS Template for UI in
 
 Main features of the Excel Spreadsheet include:
 -> Cell Address Display to know the current active or cell we are working on
+
 -> Cell formula to perform complex calculations using the data from other cells in the grid (involves heavy usage of Data Structure concepts like trees and Graphs)
+
 -> Propagation of changes in the cell data to the dependents and the parents immediately
+
 -> Bold the text in the Cell
+
 -> Underline
+
 -> Italic
+
 -> Horizontal Alignment (Left, Center, Right)
+
 -> Font Style
+
 -> Font Size
+
 -> Text Color
+
 -> Background Color
+
 -> New File
+
 -> Open Existing File
+
 -> Save File
 
 
