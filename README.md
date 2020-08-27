@@ -2,7 +2,7 @@
 
 This Spreadsheet application is built using Electron with EJS Template for UI in the frontend and NodeJS in the backend. Also JQuery is used in order to manipulate the frontend and handling all the required and possible events on the frontend to make the application to be simplistic and robust. 
 
-Main features of the Excel Spreadsheet include:
+# Main features of the Excel Spreadsheet include:
 
 -> Cell Address Display to know the current active or cell we are working on
 
