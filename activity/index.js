@@ -9,7 +9,7 @@ $(document).ready(function(){
         
         let cidAddr = String.fromCharCode(cid + 65);
 
-        $('#text-input').val(cidAddr + (rid + 1));
+        $('#address-input').val(cidAddr + (rid + 1));
     })
 
     $('#grid .cell').on('blur', function(){
