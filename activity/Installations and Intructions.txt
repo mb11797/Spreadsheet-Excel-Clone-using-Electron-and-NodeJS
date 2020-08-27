@@ -1,0 +1,22 @@
+Installation:
+1. create main.js
+2. cd => main.js
+3. Add main.js in "main" in package.json:
+   "main": "main.js"
+4. Add "electron ." in "scripts" in package.json:
+   "scripts": "electron ."
+5. npm init -y
+6. npm install electron@9.2.0 --save-dev
+7. npm install --save-dev jquery
+8. npm install ejs-electron
+
+Note: Directory containing main.js should be written in small letters with no space between letters, 
+which will be mentioned in "package.json" in "name":
+"name": "directory_name"
+
+To run:
+npm start
+
+Resources:
+https://www.electronjs.org/docs/tutorial/first-app
+https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell
